@@ -37,6 +37,8 @@ describe('Cache',()=>{
   })
   it('returns undefined if name is not cached', ()=>{
     cache.init()
+    global.pokeCache['john'] = {}
+    delete global.pokeCacheIndex['john']
 
     const cacheMiss = cache.getByName('john')
 
