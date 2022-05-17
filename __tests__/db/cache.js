@@ -12,6 +12,12 @@ const firstPokemon = {
   'url': 'https://pokeapi.co/api/v2/pokemon/1/',
 }
 
+const ivysaur = {
+  'id': 2,
+  'name': 'ivysaur',
+  'url': 'https://pokeapi.co/api/v2/pokemon/2/',
+}
+
 describe('Cache',()=>{
   it('initialises to global var', ()=>{
     cache.init()
@@ -22,5 +28,18 @@ describe('Cache',()=>{
       firstPokemon
     )
   })
+  it('gets Pokemon by name', ()=>{
+    cache.init()
 
+    const ivysaurFromCache = cache.getByName(ivysaur.name)
+
+    expect(ivysaurFromCache).toMatchObject(ivysaur)
+  })
+  it('returns undefined if name is not cached', ()=>{
+    cache.init()
+
+    const cacheMiss = cache.getByName('john')
+
+    expect(cacheMiss).toBe(undefined)
+  })
 })

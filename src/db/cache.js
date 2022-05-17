@@ -16,7 +16,7 @@ function init(){
 }
 
 function getByName(name){
-  return global.cache[global.cacheIndex[name]]
+  return global.pokeCache[global.pokeCacheIndex[name]]
 }
 
 export default {
