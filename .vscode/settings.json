@@ -1,0 +1,15 @@
+{
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#2ab152",
+    "titleBar.activeBackground": "#2ab152",
+    "titleBar.inactiveBackground": "#2ab152",
+    "statusBar.foreground": "#000",
+    "titleBar.inactiveForeground": "#000",
+    "titleBar.activeForeground": "#000"
+
+  },
+  "window.title": "Truelayer Pokemon BackEnd",
+  // Disabling both is required to prevent vscode ts validator objecting to express functions.
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+}
