@@ -1,5 +1,6 @@
 # Simple Pokemon App
 
+An (initially) simple backend to consume https://pokeapi.co/ , with a FE to display a searchable subset of the data hosted there.
 
 ## Contents
 - [Simple Pokemon App](#simple-pokemon-app)
@@ -74,6 +75,9 @@ or
 ### Challenges
   - First test suite setup.
     - Jest was refusing to await the teardown command.  It remains unclear why it is now behaving as expected.
+  
+  - Agile discipline error 
+    - I should have set the backend up to return some hardcoded data, then moved immediately to the frontend, ensuring end-to-end functionality, then moved to fetching data from the pokeApi, then cache that data.  I allowed the pokeApi's requirement that users cache requests as they make them to distract me into building that cache.
 
 ### Known Issues
 
