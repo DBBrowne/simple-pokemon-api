@@ -1,5 +1,11 @@
 import cache from '../../src/db/cache.js'
 
+function resetGlobalCache (){
+  global.pokeCache = {}
+  global.pokeCacheIndex = {}
+}
+afterEach(resetGlobalCache)
+
 const firstPokemon = {
   'id': 1,
   'name': 'bulbasaur',
