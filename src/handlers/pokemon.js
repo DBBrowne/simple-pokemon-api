@@ -1,16 +1,15 @@
 import cache from '../db/cache.js'
+import pokeApi from '../external/pokeApi.js'
 
 class Pokemon {
   constructor(
     id = 0,
     name = '',
-    url = '',
     description = '',
     isLegendary = false
   ){
     this.id = id
     this.name = name
-    this.url = url
     this.description = description
     this.isLegendary = isLegendary
   }
@@ -24,9 +23,16 @@ export function isCompletePokemon(pokemon){
 }
 
 async function getPokemonDataByName(name){
-  const fromCache = cache.getByName(name)
+  let targetPokemon = cache.getByName(name)
 
-  return fromCache
+  if (isCompletePokemon(targetPokemon)){
+    return targetPokemon
+  }
+
+  // TODO: get from Database here.
+
+  targetPokemon = await pokeApi.getDetails(name)
+  return targetPokemon
 }
 
 export default {

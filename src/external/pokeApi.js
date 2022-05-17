@@ -1,11 +1,14 @@
 import axios from 'axios'
 
-async function getFullPokemonList(){
-  await axios.get('https://pokeapi.co/api/v2/pokemon?&limit=2000').then(res=>{
+import { tidyNewLines } from '../../src/common/stringUtils.js'
+
     return res.data
   }).catch(err=>console.log(err))
 }
+async function getDetails(nameOrId){
+}
 
-export {
-  getFullPokemonList,
+export default {
+  getFullList,
+  getDetails,
 }

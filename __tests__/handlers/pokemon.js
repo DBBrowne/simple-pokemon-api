@@ -1,11 +1,11 @@
 import cache from '../../src/db/cache.js'
-import pokemonHandler from '../../src/handlers/pokemon.js'
 import { isCompletePokemon } from '../../src/handlers/pokemon.js'
+import pokemonHandler from '../../src/handlers/pokemon.js'
+import pokeApi from '../../src/external/pokeApi.js'
 
 const venusaur = {
   'id': 3,
   'name': 'venusaur',
-  'url': 'https://pokeapi.co/api/v2/pokemon/3/',
   'description': 'The plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.',
   'isLegendary': false,
 }
@@ -19,6 +19,18 @@ describe('pokemon Handler', ()=>{
     const venusaurFromCache = await pokemonHandler.byName(venusaur.name)
 
     expect(venusaurFromCache).toMatchObject(venusaur)
+  })
+  it('fetches data from pokeApi if cached data is incomplete', async()=>{
+    pokeApi.getDetails = jest.fn(()=>venusaur)
+
+    global.pokeCache = []
+    global.pokeCache[venusaurCacheIndex] = { id: venusaur.id, name: venusaur.name }
+
+    const venusaurFromMock = await pokemonHandler.byName(venusaur.name)
+
+    expect(venusaurFromMock).toMatchObject(venusaur)
+    expect(pokeApi.getDetails).toBeCalledTimes(1)
+    expect(pokeApi.getDetails).toBeCalledWith(venusaur.name)
   })
 })
 
