@@ -9,13 +9,11 @@ afterEach(resetGlobalCache)
 const firstPokemon = {
   'id': 1,
   'name': 'bulbasaur',
-  'url': 'https://pokeapi.co/api/v2/pokemon/1/',
 }
 
 const ivysaur = {
   'id': 2,
   'name': 'ivysaur',
-  'url': 'https://pokeapi.co/api/v2/pokemon/2/',
 }
 
 describe('Cache',()=>{

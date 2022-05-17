@@ -43,7 +43,7 @@ describe('isCompletePokemon', ()=>{
     expect(isCompletePokemon(incompletePokemon)).toBe(false)
   })
   it('returns false if cached data is not valid',()=>{
-    const incompletePokemon = { ...venusaur, url: Number(1) }
+    const incompletePokemon = { ...venusaur, name: Number(1) }
     expect(isCompletePokemon(incompletePokemon)).toBe(false)
   })
 })
