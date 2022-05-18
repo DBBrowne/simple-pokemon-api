@@ -74,6 +74,8 @@ or
 ### Good times
   - First test suite setup involving express / HTTP / mocks.
 
+  - Nice, lightweight, in-memory cache.  We've not holding much data here, so no issue with a crude approach.
+
 ### Challenges
   - First test suite setup.
     - Jest was refusing to await the teardown command.  It remains unclear why it is now behaving as expected, and is still sometimes detecting an open handle before exiting.
@@ -81,6 +83,8 @@ or
   
   - Agile discipline error 
     - I should have set the backend up to return some hardcoded data, then moved immediately to the frontend, ensuring end-to-end functionality, then moved to fetching data from the pokeApi, then cache that data.  I allowed the pokeApi's requirement that users cache requests as they make them to distract me into building that cache.
+    - Should have been 30-40 minutes setting up basic BE (longer with testing, but simple tests would not have ended up in the Promise confusion that this exercise lead to), then skeleton FE, then iterate and improve.
+      - https://github.com/DBBrowne/actually-simple-pokeAPI-api
 
 ### Known Issues
   - [Project board](https://github.com/users/DBBrowne/projects/2/views/1)
