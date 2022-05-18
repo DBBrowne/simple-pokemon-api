@@ -1,9 +1,10 @@
 import './App.css';
+import PokeInfo from './containers/PokeInfo';
 
 function App() {
   return (
     <section>
-      <h1>Hello</h1>
+      <PokeInfo />
     </section>
   );
 }
