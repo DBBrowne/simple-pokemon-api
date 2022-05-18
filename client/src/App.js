@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import PokeInfo from './containers/PokeInfo';
 import { getPokemonData } from './lib/api';
 
