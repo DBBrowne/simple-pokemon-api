@@ -14,19 +14,29 @@ const initPokeData = {
 
 export default function App() {
   let [pokeData, setPokeData] = React.useState(initPokeData)
+  let [searchEntry, setSearchEntry] = React.useState('')
 
+  const getPokeData = (name)=>{
+    getPokemonData(name).then(res=>{
+      setPokeData(res.data)
+    })
+  }
   React.useEffect(()=>{
-    function getPokeData (name){
-      getPokemonData(name).then(res=>{
-        setPokeData(res.data)
-      })
-    }
     getPokeData('charmander')
-    }, [])
+  }, [])
+
+  const handleSearchChange = (e) =>{
+    setSearchEntry(e.target.value)
+  }
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+
+    getPokeData(searchEntry)
+  }
 
   return (
     <section className="main">
-      <SearchBar />
+      <SearchBar onSubmit={handleSearchSubmit} onChange={handleSearchChange}/>
       <PokeInfo {...pokeData}/>
     </section>
   );

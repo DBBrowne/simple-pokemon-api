@@ -1,8 +1,8 @@
 import './SearchBar.css'
 
-export default function SearchBar () {
+export default function SearchBar ({onSubmit, onChange}) {
   return (
-    <form className="search">
+    <form className="search" onSubmit={onSubmit}>
       <label />
       <input 
         type="text"
@@ -10,6 +10,7 @@ export default function SearchBar () {
         placeholder="What are you catching?"
         name='search-input'
         id='search-input'
+        onChange={onChange}
       />
       <button type="submit">Search!</button>
     </form>
