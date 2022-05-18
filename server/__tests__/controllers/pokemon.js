@@ -3,9 +3,17 @@ import request from 'supertest'
 import { isCompletePokemon } from '../../src/handlers/pokemon.js'
 import pokeApi from '../../src/external/pokeApi'
 import { server } from '../../src/index.js'
+import { NotFound } from '../../src/common/errors.js'
 
 beforeAll(()=>{
-  pokeApi.getDetails = jest.fn(()=>uncachedPokemon)
+  pokeApi.getDetails = jest.fn(async (name)=>{
+    return new Promise((resolve, reject)=>{
+      if ([uncachedPokemon.name, cachedPokemon.name].includes(name)){
+        return resolve(uncachedPokemon)
+      }
+      reject(new NotFound())
+    })
+  })
 })
 beforeEach(()=>{
   jest.clearAllMocks()
@@ -53,5 +61,14 @@ describe('Poke API', ()=>{
     expect(pokeApi.getDetails).toBeCalledTimes(0)
     expect(response.statusCode).toBe(200)
     expect(response.body).toMatchObject(cachedPokemon)
+  })
+  it('returns 404 if pokemon is not found', async ()=>{
+    const notReal = 'john'
+    const response = await request(server).get(`/api/pokemon/${notReal}`)
+
+    expect(pokeApi.getDetails).toBeCalledWith(notReal)
+    expect(pokeApi.getDetails).toBeCalledTimes(1)
+    expect(response.statusCode).toBe(404)
+    expect(JSON.stringify(response.body)).toBe(JSON.stringify({ msg: 'Not Found' }))
   })
 })

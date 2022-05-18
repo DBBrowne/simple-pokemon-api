@@ -1,7 +1,13 @@
-import { debugMode } from '../config/environment.js'
+import { debugMode, nodeEnv } from '../config/environment.js'
 
 export function logDebug (...message){
   debugMode && console.info(...message)
+}
+
+export function logError(...message){
+  if ('test' !== nodeEnv){
+    console.error(message)
+  }
 }
 
 function buildObjectLog(obj) {

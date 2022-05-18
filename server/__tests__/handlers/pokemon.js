@@ -3,6 +3,14 @@ import { isCompletePokemon } from '../../src/handlers/pokemon.js'
 import pokemonHandler from '../../src/handlers/pokemon.js'
 import pokeApi from '../../src/external/pokeApi.js'
 
+beforeAll(()=>{
+  pokeApi.getDetails = jest.fn(async ()=>Promise.resolve(venusaurComplete))
+})
+beforeEach(()=>{
+  jest.clearAllMocks()
+})
+
+
 const venusaurIncomplete = {
   'id': 3,
   'name': 'venusaur',
@@ -24,8 +32,6 @@ describe('pokemon Handler', ()=>{
     expect(venusaurFromCache).toMatchObject(venusaurComplete)
   })
   it('fetches data from pokeApi if cached data is incomplete', async()=>{
-    pokeApi.getDetails = jest.fn(()=>venusaurComplete)
-
     global.pokeCache = []
     global.pokeCache[venusaurCacheIndex] = venusaurIncomplete
 
@@ -36,8 +42,6 @@ describe('pokemon Handler', ()=>{
     expect(pokeApi.getDetails).toBeCalledWith(venusaurComplete.name)
   })
   it('updates cache with new data on fetch', async()=>{
-    pokeApi.getDetails = jest.fn(()=>venusaurComplete)
-
     global.pokeCache = []
     global.pokeCache[venusaurCacheIndex] = venusaurIncomplete
 
