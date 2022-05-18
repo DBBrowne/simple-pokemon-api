@@ -32,6 +32,7 @@ async function getPokemonDataByName(name){
   // TODO: get from Database here.
 
   targetPokemon = await pokeApi.getDetails(name)
+  cache.update(targetPokemon)
   return targetPokemon
 }
 
