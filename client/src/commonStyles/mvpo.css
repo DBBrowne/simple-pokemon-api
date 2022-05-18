@@ -386,13 +386,13 @@ form {
     display: block;
     max-width: var(--width-card-wide);
     min-width: var(--width-card);
-    padding: 1.5rem;
+    padding: 1rem;
     text-align: var(--justify-normal);
 }
 
 form header {
-    margin: 1.5rem 0;
-    padding: 1.5rem 0;
+    margin: 1rem 0;
+    padding: 1rem 0;
 }
 
 input,

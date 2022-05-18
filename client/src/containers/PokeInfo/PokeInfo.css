@@ -1,3 +1,7 @@
+.poke-info{
+  width: 100%;
+  /* margin: 0; */
+}
 .poke-info h3 {
   font-family: var(--poke-font);
   color: var(--poke-font-color);

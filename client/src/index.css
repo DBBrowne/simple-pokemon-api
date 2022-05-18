@@ -17,7 +17,9 @@
     }
 }
 
-
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: var(--font-family);
@@ -27,4 +29,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root{
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

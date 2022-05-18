@@ -1,6 +1,10 @@
 import React from 'react';
-import PokeInfo from './containers/PokeInfo';
+
+import './App.css'
+
 import { getPokemonData } from './lib/api';
+import PokeInfo from './containers/PokeInfo/PokeInfo.js';
+import SearchBar from './containers/SearchBar/SearchBar';
 
 const initPokeData = {
   id: 0,
@@ -21,7 +25,8 @@ export default function App() {
     }, [])
 
   return (
-    <section>
+    <section className="main">
+      <SearchBar />
       <PokeInfo {...pokeData}/>
     </section>
   );
