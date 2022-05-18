@@ -1,5 +1,6 @@
-import Http from 'http'
+import cors from 'cors'
 import express from 'express'
+import Http from 'http'
 
 import cache from './db/cache.js'
 import { logDebug, reqLogger } from './common/loggers.js'
@@ -9,6 +10,7 @@ import router from './config/router.js'
 export let server
 
 const app = express.Router()
+app.use(cors())
 app.use('/', reqLogger)
 app.use('/api', router)
 
