@@ -1,0 +1,13 @@
+.recent {
+  margin-left: 1em;
+  margin-top: 2em;
+}
+
+.recent aside {
+  padding-top: 0;
+  margin-top: 0;
+  width: fit-content;
+}
+.recent ul {
+  padding-left: 20px;
+}
