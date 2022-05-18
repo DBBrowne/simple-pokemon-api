@@ -8,7 +8,7 @@
     "titleBar.activeForeground": "#000"
 
   },
-  "window.title": "Truelayer Pokemon BackEnd",
+  "window.title": "Pokemon BackEnd",
   // Disabling both is required to prevent vscode ts validator objecting to express functions.
   "typescript.validate.enable": false,
   "javascript.validate.enable": false,
