@@ -4,6 +4,7 @@
   "description": "Simple backend services to feed the simple Pokemon FE.",
   "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "dev": "node src/index.js",
     "test": "jest --detectOpenHandles --config=jest.config.js",
     "test:config": "jest --config=jest.config.js --showConfig",
