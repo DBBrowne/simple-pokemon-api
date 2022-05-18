@@ -18,8 +18,14 @@ function init(){
 function getByName(name){
   return global.pokeCache[global.pokeCacheIndex[name]]
 }
+function update(pokemon){
+  const cacheIndex = global.pokeCacheIndex[pokemon.name]
+  global.pokeCache[cacheIndex] = pokemon
+  return pokemon
+}
 
 export default {
   init,
   getByName,
+  update,
 }

@@ -4,6 +4,7 @@ function resetGlobalCache (){
   global.pokeCache = {}
   global.pokeCacheIndex = {}
 }
+beforeEach(cache.init)
 afterEach(resetGlobalCache)
 
 const firstPokemon = {
@@ -16,10 +17,19 @@ const ivysaur = {
   'name': 'ivysaur',
 }
 
+const incompletePokemon = {
+  id: 6, 
+  'name': 'charizard',
+}
+
+const completePokemon = {
+  ...incompletePokemon,
+  'description': 'Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally',
+  'is_legendary': false,
+}
+
 describe('Cache',()=>{
   it('initialises to global var', ()=>{
-    cache.init()
-
     expect(
       global.pokeCache[0]
     ).toMatchObject(
@@ -27,19 +37,26 @@ describe('Cache',()=>{
     )
   })
   it('gets Pokemon by name', ()=>{
-    cache.init()
-
     const ivysaurFromCache = cache.getByName(ivysaur.name)
 
     expect(ivysaurFromCache).toMatchObject(ivysaur)
   })
   it('returns undefined if name is not cached', ()=>{
-    cache.init()
     global.pokeCache['john'] = {}
     delete global.pokeCacheIndex['john']
 
     const cacheMiss = cache.getByName('john')
 
     expect(cacheMiss).toBe(undefined)
+  })
+  describe('cache.replace', ()=>{
+    it('replaces cached data', ()=>{
+      const cacheIndex = global.pokeCacheIndex[incompletePokemon.name]
+      global.pokeCache[cacheIndex] = incompletePokemon
+
+      cache.update(completePokemon)
+
+      expect(global.pokeCache[cacheIndex]).toMatchObject(completePokemon)
+    })
   })
 })
