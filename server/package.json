@@ -7,7 +7,7 @@
     "dev": "node src/index.js",
     "test": "jest --detectOpenHandles --config=jest.config.js",
     "test:config": "jest --config=jest.config.js --showConfig",
-    "watch": "jest --detectOpenHandles --config=jest.config.js --watch"
+    "watch": "npm run test -- --watch"
   },
   "keywords": [
     "express",
