@@ -72,11 +72,12 @@ or
 ```
 
 ### Good times
-  - First test suite setup involving express.
+  - First test suite setup involving express / HTTP / mocks.
 
 ### Challenges
   - First test suite setup.
     - Jest was refusing to await the teardown command.  It remains unclear why it is now behaving as expected, and is still sometimes detecting an open handle before exiting.
+    - Mocking Promises, and applying consistent mocks.  Lost lot of time debugging, only to notice that i have failed to update one mock to return a Promise.  Default place for mocking will now be in beforeAll()....
   
   - Agile discipline error 
     - I should have set the backend up to return some hardcoded data, then moved immediately to the frontend, ensuring end-to-end functionality, then moved to fetching data from the pokeApi, then cache that data.  I allowed the pokeApi's requirement that users cache requests as they make them to distract me into building that cache.

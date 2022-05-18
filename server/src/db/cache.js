@@ -16,11 +16,13 @@ function init(){
 }
 
 function getByName(name){
-  return global.pokeCache[global.pokeCacheIndex[name]]
+  const cacheLocation = global.pokeCacheIndex[name]
+  return global.pokeCache[cacheLocation]
 }
 function update(pokemon){
-  const cacheIndex = global.pokeCacheIndex[pokemon.name]
-  global.pokeCache[cacheIndex] = pokemon
+  const cacheLocation = pokemon.id - 1
+  global.pokeCache[cacheLocation] = pokemon
+  global.pokeCacheIndex[pokemon.name] = cacheLocation
   return pokemon
 }
 

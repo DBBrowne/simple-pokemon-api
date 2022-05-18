@@ -1,0 +1,12 @@
+.poke-info{
+  width: 100%;
+  padding-top: 15px;
+}
+.poke-info h3 {
+  font-family: var(--poke-font);
+  color: var(--poke-font-color);
+  margin-top: 1.5rem;
+}
+.poke-info small{
+  position: absolute;
+}

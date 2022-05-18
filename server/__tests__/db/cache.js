@@ -51,12 +51,22 @@ describe('Cache',()=>{
   })
   describe('cache.replace', ()=>{
     it('replaces cached data', ()=>{
-      const cacheIndex = global.pokeCacheIndex[incompletePokemon.name]
-      global.pokeCache[cacheIndex] = incompletePokemon
+      const cacheLocation = global.pokeCacheIndex[incompletePokemon.name]
+      global.pokeCache[cacheLocation] = incompletePokemon
 
       cache.update(completePokemon)
 
-      expect(global.pokeCache[cacheIndex]).toMatchObject(completePokemon)
+      expect(global.pokeCache[cacheLocation]).toMatchObject(completePokemon)
+    })
+    it('updates cache index', ()=>{
+      const unlistedPokemon = { ...completePokemon, name: 'definitelyNotAPokemon', id: 2000 }
+      expect(global.pokeCacheIndex[unlistedPokemon.name]).toBe(undefined)
+      expect(global.pokeCache[unlistedPokemon.id - 1]).toBe(undefined)
+
+      cache.update(unlistedPokemon)
+
+      expect(global.pokeCacheIndex[unlistedPokemon.name]).toBe(unlistedPokemon.id - 1)
+      expect(global.pokeCache[unlistedPokemon.id - 1]).toBe(unlistedPokemon)
     })
   })
 })

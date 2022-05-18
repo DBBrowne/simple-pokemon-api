@@ -17,6 +17,7 @@ class Pokemon {
 
 const blankPokemon = new Pokemon()
 export function isCompletePokemon(pokemon){
+  if (!pokemon) return false
   return Object.keys(blankPokemon).every( prop => {
     return typeof blankPokemon[prop] === typeof pokemon[prop]
   })
