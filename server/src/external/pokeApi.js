@@ -1,6 +1,8 @@
 import axios from 'axios'
 
 import { tidyNewLines } from '../../src/common/stringUtils.js'
+import { logDebug } from '../common/loggers.js'
+
 
 const pokeApiBase = 'https://pokeapi.co/api/v2' 
 
@@ -10,6 +12,8 @@ async function getFullList(){
   }).catch(err=>console.log(err))
 }
 async function getDetails(nameOrId){
+  logDebug(`Getting Data from external API: ${nameOrId}`)
+
   return await axios.get(`${pokeApiBase}/pokemon-species/${nameOrId}`).then(res=>{
     const data = res.data
     const pokemon = {}
