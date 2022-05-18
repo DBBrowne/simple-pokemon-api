@@ -1,12 +1,29 @@
+@font-face {
+  font-family: 'pokemon-solid';
+  src: local('pokemon-solid'), url(./assets/Pokemon-Solid.ttf) format('truetype');
+}
+
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  --poke-font: pokemon-solid, var(--font-family);
+  --poke-font-color: dodgerblue;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --poke-font-color: yellow;
+    }
+}
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

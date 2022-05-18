@@ -1,3 +1,5 @@
+import './PokeInfo.css'
+
 export default function PokeInfo(pokeData){
   const pokeId = String(pokeData.id).padStart(4, '0')
   let pokeName = pokeData.name
@@ -9,8 +11,10 @@ export default function PokeInfo(pokeData){
         (pokeData.isLegendary ? ' legendary' : '')
       }
     >
+      <aside>
       <h3>{pokeId}: {pokeName}</h3>
       <p>{pokeData.description}</p>
+      </aside>
     </section>
   )
 }
