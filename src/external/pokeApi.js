@@ -1,11 +1,31 @@
 import axios from 'axios'
 
-async function getFullPokemonList(){
-  await axios.get('https://pokeapi.co/api/v2/pokemon?&limit=2000').then(res=>{
+import { tidyNewLines } from '../../src/common/stringUtils.js'
+
+const pokeApiBase = 'https://pokeapi.co/api/v2' 
+
+async function getFullList(){
+  return await axios.get(`${pokeApiBase}/pokemon?&limit=2000`).then(res=>{
     return res.data
   }).catch(err=>console.log(err))
 }
+async function getDetails(nameOrId){
+  return await axios.get(`${pokeApiBase}/pokemon-species/${nameOrId}`).then(res=>{
+    const data = res.data
+    const pokemon = {}
+    
+    pokemon.id = data.id
+    pokemon.name = data.name
+    pokemon.isLegendary = data.is_legendary
+    pokemon.description = tidyNewLines(
+      data.flavor_text_entries[0].flavor_text
+    )
+    
+    return pokemon
+  }).catch(err=>console.log(err))
+}
 
-export {
-  getFullPokemonList,
+export default {
+  getFullList,
+  getDetails,
 }

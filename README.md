@@ -1,5 +1,6 @@
 # Simple Pokemon App
 
+An (initially) simple backend to consume https://pokeapi.co/ , with a FE to display a searchable subset of the data hosted there.
 
 ## Contents
 - [Simple Pokemon App](#simple-pokemon-app)
@@ -61,11 +62,13 @@
 ### Running Tests
 
 ```console
-  npm run test
+  npm run --prefix client test
+  npm run --prefix server test
 ```
 or
 ```console
-  npm run watch
+  npm run --prefix client watch
+  npm run --prefix server watch
 ```
 
 ### Good times
@@ -73,8 +76,12 @@ or
 
 ### Challenges
   - First test suite setup.
-    - Jest was refusing to await the teardown command.  It remains unclear why it is now behaving as expected.
+    - Jest was refusing to await the teardown command.  It remains unclear why it is now behaving as expected, and is still sometimes detecting an open handle before exiting.
+  
+  - Agile discipline error 
+    - I should have set the backend up to return some hardcoded data, then moved immediately to the frontend, ensuring end-to-end functionality, then moved to fetching data from the pokeApi, then cache that data.  I allowed the pokeApi's requirement that users cache requests as they make them to distract me into building that cache.
 
 ### Known Issues
+  - [Project board](https://github.com/users/DBBrowne/projects/2/views/1)
 
   - Potentially more efficient to initialise one global instance of the express server, and later database connections, then shut them down at the end of the suite, rather than new instances and shutdowns in every test file.
