@@ -2,6 +2,10 @@
 
 An (initially) simple backend to consume https://pokeapi.co/ , with a FE to display a searchable subset of the data hosted there.
 
+Frontend deployed at: [pokemon.dbb.tools](https://pokemon.dbb.tools/)  
+Backend deployed at: [simple-pokemon-be.herokuapp.com](https://simple-pokemon-be.herokuapp.com/api/)  
+
+Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokemon-be.herokuapp.com/api/pokemon/mew)
 ## Contents
 - [Simple Pokemon App](#simple-pokemon-app)
 - [Demos](#demos)
@@ -10,6 +14,9 @@ An (initially) simple backend to consume https://pokeapi.co/ , with a FE to disp
 - [Known Issues](#known-issues)
 
 ### Demos
+
+|![image](https://user-images.githubusercontent.com/72463218/169171672-0e1ed21b-4995-44b9-b2ff-3c391cabad1a.png)|![image](https://user-images.githubusercontent.com/72463218/169171747-fe670e2d-28d2-463a-b16b-85335fe93fab.png)|
+|---|---|
 
 ### Usage
 1. Install Git
@@ -37,12 +44,6 @@ An (initially) simple backend to consume https://pokeapi.co/ , with a FE to disp
         ```console
         npm run --prefix server test
         ```
-        Your console should then show
-        ```console
-          Up and running on { address: '::', family: 'IPv6', port: 4000 }
-        ```
-        and a web browser should show OK when visiting:
-        `localhost:4000/api/` or either of the direct addresses `http://127.0.0.1:4000/api/` or `http://[::]:4000/api/`
     2. Frontend:
         From a new terminal, run the Frontend:
         ```console
@@ -53,11 +54,24 @@ An (initially) simple backend to consume https://pokeapi.co/ , with a FE to disp
         ```console
         npm run --prefix server dev
         ```
+
+        Your console should then show
+        ```console
+          Up and running on { address: '::', family: 'IPv6', port: 4000 }
+        ```
+        and a web browser should show OK when visiting:
+        `localhost:4000/api/` or either of the direct addresses `http://127.0.0.1:4000/api/` or `http://[::]:4000/api/`
+
+        You can get pokemon information from  
+        - `localhost:4000/api/pokemon/<yourQueryHere>`
+        e.g.:
+        - - `localhost:4000/api/pokemon/mewtwo`
+
     2. Frontend:
         ```console
         npm run --prefix client dev
         ```
-
+        Visit the frontend at [localhost:3000](localhost:3000)
 
 ### Running Tests
 
