@@ -10,11 +10,13 @@ export default function PokeInfo({pokeData, isError}){
         'poke-info' + 
         (pokeData.isLegendary ? ' legendary' : '')
       }
+      role="article"
     >
       <small>
       {isError ? ('We couldn\'t find that one.  How about:') : ''}
       </small>
-      <h3>
+      {/* eslint-disable-next-line jsx-a11y/aria-role*/}
+      <h3 role="header">
         <span>{pokeId}: {pokeName}</span>
         {pokeData.isLegendary && <span className='legendary-notification'>Legendary!</span>}
       </h3>
