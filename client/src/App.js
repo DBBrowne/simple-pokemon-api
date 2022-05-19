@@ -7,7 +7,7 @@ import PokeInfo from './containers/PokeInfo/PokeInfo.js';
 import SearchBar from './containers/SearchBar/SearchBar';
 import RecentSearches from './containers/RecentSearches/RecentSearches';
 
-const maxRecentLength = 4
+const maxRecentLength = 5
 
 const initPokeData = {
   id: 0,
