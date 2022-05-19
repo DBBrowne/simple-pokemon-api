@@ -48,7 +48,10 @@ export default function App() {
       
     getPokeData(searchEntry.toLocaleLowerCase())
     addToRecent(searchEntry)
+  }
 
+  const recentsClickHandler= (e) => {
+    getPokeData(e.target.innerText)
   }
   
   React.useEffect(()=>{
@@ -61,7 +64,7 @@ export default function App() {
         <SearchBar onSubmit={handleSearchSubmit} onChange={handleSearchChange} />
         <PokeInfo pokeData={pokeData} isError={isError}/>
       </section>
-      <RecentSearches recentSearchList = {recentSearchList}/>
+      <RecentSearches recentSearchList = {recentSearchList} onClick={recentsClickHandler}/>
     </>
   );
 }

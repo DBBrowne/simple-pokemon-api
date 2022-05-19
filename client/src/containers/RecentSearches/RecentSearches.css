@@ -11,3 +11,8 @@
 .recent ul {
   padding-left: 20px;
 }
+
+.recent li {
+  cursor: pointer;
+  list-style-image: url(./pokeball.svg);
+}
