@@ -14,7 +14,10 @@ export default function PokeInfo({pokeData, isError}){
       <small>
       {isError ? ('We couldn\'t find that one.  How about:') : ''}
       </small>
-      <h3>{pokeId}: {pokeName}</h3>
+      <h3>
+        <span>{pokeId}: {pokeName}</span>
+        {pokeData.isLegendary && <span className='legendary-notification'>Legendary!</span>}
+      </h3>
       <p>{pokeData.description}</p>
     </aside>
   )

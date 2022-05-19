@@ -6,7 +6,44 @@
   font-family: var(--poke-font);
   color: var(--poke-font-color);
   margin-top: 1.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
 }
 .poke-info small{
   position: absolute;
+}
+
+.legendary-notification{
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  40% {
+    transform: scale(1.05);
+  }
+  57% {
+    transform: scale(1.05);
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.05);
+    transform: rotate(0);
+  }
+  53% {
+    transform: scale(1.05);
+    transform: rotate(5deg);
+  }
+  60% {
+    transform: scale(1.05);
+    transform: rotate(0);
+  }
+  100% {
+    transform: scale(0.9);
+  }
 }
