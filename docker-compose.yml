@@ -1,0 +1,14 @@
+version: "0.5"
+services:
+  back:
+    build: ./server/
+    ports:
+      - "49160:49160"
+    environment: 
+      PORT: 49160
+  front:
+    build: ./client/
+    ports:
+      - "39160:3000"
+    environment: 
+      REACT_APP_API_URL: http://localhost:49160/api
