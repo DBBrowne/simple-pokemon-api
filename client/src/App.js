@@ -46,7 +46,9 @@ export default function App() {
   }
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-      
+    
+    if(!searchEntry) return
+    
     getPokeData(searchEntry.toLocaleLowerCase())
     addToRecent(searchEntry)
   }
