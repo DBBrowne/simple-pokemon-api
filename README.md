@@ -15,12 +15,43 @@ Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokem
 
 ### Demos
 
-|![image](https://user-images.githubusercontent.com/72463218/169171672-0e1ed21b-4995-44b9-b2ff-3c391cabad1a.png)|![image](https://user-images.githubusercontent.com/72463218/169171747-fe670e2d-28d2-463a-b16b-85335fe93fab.png)|
+|![Pokemon Dark](https://user-images.githubusercontent.com/72463218/169523162-61105d7a-e30e-4523-8bef-f19c769c1c73.png)|![Pokemon Light](https://user-images.githubusercontent.com/72463218/169523490-2f60713f-8278-4300-8c6c-d16cb6efa17e.png)|
 |---|---|
 
 ### Usage
-1. Install Git
+1. #### Install Git
     - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+1. #### Clone this repository
+    - You may need to [set up a Github SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+    ```console
+    git clone git@github.com:DBBrowne/simple-pokemon-app.git
+    ```
+1. #### Install Docker
+    - [docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+    - Install docker-compose.
+        - The latest versions of docker come with docker-compose built in.  Either update your docker installation, or install docker-compose separately and modify any commands from these docs to use `docker-compose` instead of `docker compose`.
+1. #### Run the app
+    - From the local folder where you cloned this repo, run 
+      ```console
+      docker compose up
+      ```
+        - You will see the logs from inside the containers, so web addresses may not align exactly with how they behave from your desktop.
+        - If you with to run the app in the background, use `docker compose up -d`
+    - Open a web browser and visit [localhost:39160](http://localhost:39160)
+
+<details>
+  <summary>Stopping the dockerised app (click here)</summary>
+  
+  1. with `docker compose up`
+      - press `ctrl + c` (or `cmd + c`) to stop the containers.
+      - repeat the above step to close docker-compose.
+
+  1. with `docker compose up -d`
+      - run `docker stop $(docker ps -q --filter "name=simple-pokemon")`
+      This may take a few seconds to complete.
+</details>
+
+
 1. Install Node
     - Either use [Node Version Manager](https://github.com/nvm-sh/nvm) or [webInstall](https://webinstall.dev/node/) to install Node at version 16 (and the Node Package Manager that comes with it).  
     Windows is not currently supported, however webInstall  or [WSL](https://docs.microsoft.com/en-us/windows/wsl/install) may provide a route to local .
@@ -35,10 +66,6 @@ Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokem
         ```console
         curl -sS https://webinstall.dev/node@16 | bash
         ```
-1. Clone this repository
-    ```console
-    git clone [repo]
-    ```
 1. Run the tests:
     1. Backend:
         ```console
@@ -60,12 +87,12 @@ Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokem
           Up and running on { address: '::', family: 'IPv6', port: 4000 }
         ```
         and a web browser should show OK when visiting:
-        `localhost:4000/api/` or either of the direct addresses `http://127.0.0.1:4000/api/` or `http://[::]:4000/api/`
+        `localhost:49160/api/` or either of the direct addresses `http://127.0.0.1:49160/api/` or `http://[::]:49160/api/`
 
         You can get pokemon information from  
-        - `localhost:4000/api/pokemon/<yourQueryHere>`
+        - `localhost:49160/api/pokemon/<yourQueryHere>`
         e.g.:
-        - - `localhost:4000/api/pokemon/mewtwo`
+        - - `localhost:49160/api/pokemon/mewtwo`
 
     2. Frontend:
         ```console
@@ -89,6 +116,8 @@ or
   - First test suite setup involving express / HTTP / mocks.
 
   - Nice, lightweight, in-memory cache.  We've not holding much data here, so no issue with a crude approach.
+
+  - Docker + docker-compose.  Plus had some fun with the new install isntructions (only old, separate, docker-compose on this machine): [Docker repo issue and comment](https://github.com/docker/docker.github.io/issues/14787#issuecomment-1132753594)
 
 ### Challenges
   - First test suite setup.
