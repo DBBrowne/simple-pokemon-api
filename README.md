@@ -117,7 +117,7 @@ or
 
   - Nice, lightweight, in-memory cache.  We've not holding much data here, so no issue with a crude approach.
 
-  - Docker + docker-compose.  Plus had some fun with the new install isntructions (only old, separate, docker-compose on this machine): [Docker repo issue and comment](https://github.com/docker/docker.github.io/issues/14787#issuecomment-1132753594)
+  - Docker + docker-compose.  Plus had some fun with the new install instructions: [Docker repo issue and comment](https://github.com/docker/docker.github.io/issues/14787#issuecomment-1132753594)
 
 ### Challenges
   - First test suite setup.
