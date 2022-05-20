@@ -29,6 +29,7 @@ export function reqLogger(req, _res, next) {
   logDebug('' + // align message content below
 `--------------------------------
 🔴 INCOMING REQUEST!
+❕ Request ID: ${req.requestId}
 🔴 Request Method: ${req.method}
 🔴 Request URl: ${req.url}
 😺‍ Request Headers: ${buildObjectLog(req.headers)}

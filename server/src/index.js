@@ -7,11 +7,13 @@ import { logDebug, reqLogger } from './common/loggers.js'
 import { port } from './config/environment.js'
 import router from './config/router.js'
 import errorHandler from './handlers/errorHandler.js'
+import { appendId } from './common/preprocessors.js'
 
 export let server
 
 const app = express.Router()
 app.use(cors())
+app.use('/',  appendId)
 app.use('/', reqLogger)
 app.use('/api', router)
 app.use('/', errorHandler)
