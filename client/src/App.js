@@ -6,6 +6,7 @@ import { getPokemonData } from './lib/api';
 import PokeInfo from './containers/PokeInfo/PokeInfo.js';
 import SearchBar from './containers/SearchBar/SearchBar';
 import RecentSearches from './containers/RecentSearches/RecentSearches';
+import { devmode } from './config';
 
 const maxRecentLength = 5
 
@@ -35,7 +36,7 @@ export default function App() {
       setPokeData(res.data)
       setIsError(false)
     }).catch(err=>{
-      console.log(err)
+      devmode && console.log(err)
       setIsError(true)
     })
   }
