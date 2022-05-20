@@ -15,12 +15,20 @@ const initPokeData = {
   name: ' ',
   description: ''
 }
+const localRecentsKey = 'pokemonRecents'
+const localRecentsInitial = JSON.parse(window.localStorage.getItem(localRecentsKey)) || []
+async function localRecentsReplace (data){
+  window.localStorage.setItem(
+    localRecentsKey,
+    JSON.stringify(data)
+  )
+}
 
 export default function App() {
   let [pokeData, setPokeData] = React.useState(initPokeData)
   let [searchEntry, setSearchEntry] = React.useState('')
   let [isError, setIsError] = React.useState(false)
-  let [recentSearchList, setRecentSearchList] = React.useState([])
+  let [recentSearchList, setRecentSearchList] = React.useState(localRecentsInitial)
 
   const addToRecent = (item) =>{
     let newRecents = recentSearchList
@@ -29,6 +37,7 @@ export default function App() {
     }
     newRecents.unshift(item)
     setRecentSearchList(newRecents)
+    localRecentsReplace(newRecents)
   }
 
   const getPokeData = (name)=>{
@@ -48,7 +57,7 @@ export default function App() {
     e.preventDefault()
     
     if(!searchEntry) return
-    
+
     getPokeData(searchEntry.toLocaleLowerCase())
     addToRecent(searchEntry)
   }
