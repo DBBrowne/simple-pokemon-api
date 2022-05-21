@@ -6,6 +6,9 @@ Frontend deployed at: [pokemon.dbb.tools](https://pokemon.dbb.tools/)
 Backend deployed at: [simple-pokemon-be.herokuapp.com](https://simple-pokemon-be.herokuapp.com/api/)  
 
 Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokemon-be.herokuapp.com/api/pokemon/mew)
+
+  - [Project board](https://github.com/users/DBBrowne/projects/2/views/2)
+
 ## Contents
 - [Simple Pokemon App](#simple-pokemon-app)
 - [Demos](#demos)
@@ -146,6 +149,6 @@ or
       - https://github.com/DBBrowne/actually-simple-pokeAPI-api
 
 ### Known Issues
-  - [Project board](https://github.com/users/DBBrowne/projects/2/views/1)
+  - [Project board](https://github.com/users/DBBrowne/projects/2/views/2)
 
   - Potentially more efficient to initialise one global instance of the express server, and later database connections, then shut them down at the end of the suite, rather than new instances and shutdowns in every test file.

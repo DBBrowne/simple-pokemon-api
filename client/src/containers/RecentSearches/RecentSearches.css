@@ -1,18 +1,35 @@
-.recent {
-  margin-left: 1em;
-  margin-top: 2em;
-}
-
-.recent aside {
-  padding-top: 0;
-  margin-top: 0;
-  width: fit-content;
+.recent>h4{
+  display: var(--display-hide-mobile);
+  white-space: nowrap;
 }
 .recent ul {
-  padding-left: 20px;
+  padding-left: 0;
+  width: var(--list-inline-mobile-width);
+  display: var(--list-inline-mobile-display);
+  margin: var(--list-inline-mobile-margin);
+  padding: var(--list-inline-mobile-padding);
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .recent li {
   cursor: pointer;
-  list-style-image: url(./pokeball.svg);
+  list-style: none;
+  margin-left: 1em;
+  width: var(--list-inline-mobile-width-item);
+  padding: var(--list-inline-mobile-padding-item);
+  margin: var(--list-inline-mobile-margin-item);
+  border-radius: var(--border-radius);
+  background-color: var(--poke-font-color);
+  color: var(--color-bg);
+}
+
+.recent li:hover {
+  filter: brightness(var(--hover-brightness));
+}
+
+@media only screen and (min-width: 1100px){
+  .recent li {
+    margin-left: 1em;
+  }
 }

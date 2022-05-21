@@ -1,10 +1,22 @@
 .search{
   display: flex;
-  width: 100%;
-  margin-top: 2em;
 }
 
 .search input {
-  margin: 8px 4px;
+  padding: 0.7em;
   flex-grow: 1;
+  margin-right: 0.5em;
+
+  border: var(--border-outline); 
+  border-radius: var(--border-radius);
+}
+
+.search button {
+  padding: 0.7em;
+  background-color: var(--poke-font-color);
+  color: var(--color-bg);
+  font-weight: bolder;
+  
+  border: var(--border-outline); 
+  border-radius: var(--border-radius);
 }

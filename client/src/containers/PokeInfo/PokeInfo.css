@@ -1,6 +1,5 @@
 .poke-info{
-  width: 100%;
-  padding-top: 15px;
+  padding-top: 5px;
 }
 .poke-info h3 {
   font-family: var(--poke-font);
@@ -18,6 +17,12 @@
 
 .legendary-notification{
   animation: pulse 4s infinite;
+}
+
+@media only screen and (min-width: var(--screen-width-bp)){
+  .poke-info {
+    background-color: red;
+  }
 }
 
 @keyframes pulse {

@@ -72,11 +72,12 @@ export default function App() {
     
   return (
     <>
+    <header></header>
       <section className="main">
-        <SearchBar onSubmit={handleSearchSubmit} onChange={handleSearchChange} />
-        <PokeInfo pokeData={pokeData} isError={isError}/>
+          <SearchBar onSubmit={handleSearchSubmit} onChange={handleSearchChange} />
+          <PokeInfo pokeData={pokeData} isError={isError}/>
+          <RecentSearches recentSearchList = {recentSearchList} onClick={recentsClickHandler}/>
       </section>
-      <RecentSearches recentSearchList = {recentSearchList} onClick={recentsClickHandler}/>
     </>
   );
 }

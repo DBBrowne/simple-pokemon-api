@@ -5,12 +5,11 @@ export default function PokeInfo({pokeData, isError}){
   let pokeName = pokeData.name
   pokeName = pokeName[0].toUpperCase() + pokeName.slice(1).toLowerCase()
   return (
-    <aside
+    <article
       className={
-        'poke-info' + 
+        'poke-info elevate' + 
         (pokeData.isLegendary ? ' legendary' : '')
       }
-      role="article"
     >
       <small>
       {isError ? ('We couldn\'t find that one.  How about:') : ''}
@@ -21,6 +20,6 @@ export default function PokeInfo({pokeData, isError}){
         {pokeData.isLegendary && <span className='legendary-notification'>Legendary!</span>}
       </h3>
       <p>{pokeData.description}</p>
-    </aside>
+    </article>
   )
 }
