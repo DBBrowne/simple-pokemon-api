@@ -62,10 +62,11 @@ jobs:
         run:
           echo ${{ env.CONTAINER_TAGS }};
           for tag in ${{ env.CONTAINER_TAGS }}; do
-            echo ${{ env.ECR_REPOSITORY }}$tag
-            docker push ${{ env.ECR_REPOSITORY }}$tag
+            echo ${{ env.ECR_REPOSITORY }}
+            echo $tag
+            # docker push ${{ env.ECR_REPOSITORY }}$tag
           done;
 
-      - name: Re-deploy via AWS service
-        run:
-          aws ecs update-service --cluster ${{ env.ECS_CLUSTER }} --service ${{ env.ECS_SERVICE }} --region ${{ env.AWS_REGION }} --force-new-deployment
+      # - name: Re-deploy via AWS service
+      #   run:
+      #     aws ecs update-service --cluster ${{ env.ECS_CLUSTER }} --service ${{ env.ECS_SERVICE }} --region ${{ env.AWS_REGION }} --force-new-deployment
