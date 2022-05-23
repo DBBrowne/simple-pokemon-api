@@ -1,0 +1,24 @@
+services:
+  back:
+    image: 029929660699.dkr.ecr.eu-west-2.amazonaws.com/pokemon-back
+    build: ./server/
+    ports:
+      - "49160:49160"
+    environment: 
+      PORT: 49160
+    networks:
+      - pokeNet
+  front-prod:
+    image: 029929660699.dkr.ecr.eu-west-2.amazonaws.com/pokemon-front
+    build: 
+      context: ./client
+      dockerfile: dockerfile.prod.yml
+    ports:
+      - "39160:80"
+    environment: 
+      REACT_APP_API_URL: /api
+    networks:
+      - pokeNet
+
+networks:
+    pokeNet:

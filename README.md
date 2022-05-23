@@ -10,6 +10,8 @@ Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokem
 - [Simple Pokemon App](#simple-pokemon-app)
 - [Demos](#demos)
 - [Usage](#usage)
+    - [Deployments](#Deployments)
+    - [Running Locally](#running-locally)
 - [Running Tests](#running-tests)
 - [Known Issues](#known-issues)
 
@@ -19,6 +21,20 @@ Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokem
 |---|---|
 
 ### Usage
+#### Deployments
+  1. AWS - Fargate / ECS - awsvpc :
+      - [pokeduck.duckdns.org](http://pokeduck.duckdns.org)  
+      or:
+      - [13.40.49.41](http://13.40.49.41/)  
+      
+      nginx reverse proxy serving client at [the root](http://13.40.49.41/), and API at /api.
+    eg [http://13.40.49.41/api/pokemon/mewtwo](http://13.40.49.41/api/pokemon/mewtwo)
+  1. Netlify:
+      - Frontend deployed at: [pokemon.dbb.tools](https://pokemon.dbb.tools/)   
+      - Backend deployed at: [simple-pokemon-be.herokuapp.com](https://simple-pokemon-be.herokuapp.com/api/)
+
+#### Running Locally
+ 
 1. #### Install Git
     - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 1. #### Clone this repository
