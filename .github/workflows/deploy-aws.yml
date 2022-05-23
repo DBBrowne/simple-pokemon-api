@@ -59,7 +59,7 @@ jobs:
         run: |
           docker compose -f ./docker-compose.prod.yml up --build --no-start    
           for tag in ${{ env.CONTAINER_TAGS }}; do
-            docker push ${{ ECR_REPOSITORY }}$tag
+            docker push ${{ env.ECR_REPOSITORY }}$tag
           done
 
       - name: Re-deploy via AWS service
