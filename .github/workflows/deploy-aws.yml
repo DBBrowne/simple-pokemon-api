@@ -66,7 +66,7 @@ jobs:
           echo ${{ env.CONTAINER_TAGS }};
           for tag in ${{ env.CONTAINER_TAGS }}; do
             echo ${{ env.ECR_REPOSITORY }}
-            echo $tag
+            echo $tag;
           done;
           echo PUSHED
 
