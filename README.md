@@ -26,13 +26,10 @@ Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokem
 ### Usage
 #### Deployments
   1. AWS - Fargate / ECS - awsvpc :
-      - [pokeduck.duckdns.org](http://pokeduck.duckdns.org)  
-      or:
-      - [13.40.49.41](http://13.40.49.41/)  
-      
-      nginx reverse proxy serving client at [the root](http://13.40.49.41/), and API at /api.
-    eg [http://13.40.49.41/api/pokemon/mewtwo](http://13.40.49.41/api/pokemon/mewtwo)
-  1. Netlify:
+      AmazonWebServices load balancer in front of nginx reverse proxy serving client at the root, and API at /api.
+        - [pokezon.dbb.tools](http://pokezon.dbb.tools/)  
+>eg [pokezon.dbb.tools/api/pokemon/mewtwo](http://pokezon.dbb.tools/api/pokemon/mewtwo)
+  1. Netlify/Heroku - automated builds on push-to-main:
       - Frontend deployed at: [pokemon.dbb.tools](https://pokemon.dbb.tools/)   
       - Backend deployed at: [simple-pokemon-be.herokuapp.com](https://simple-pokemon-be.herokuapp.com/api/)
 
