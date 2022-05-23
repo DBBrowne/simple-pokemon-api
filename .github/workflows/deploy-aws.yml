@@ -21,6 +21,7 @@ env:
 
 jobs:
   test:
+    name: Test
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -31,7 +32,7 @@ jobs:
       - run: 
           for folder in ${{ env.TEST_FOLDERS }}; do
             npm run --prefix $folder ci
-            npm run --prefix $folder test
+            npm run --prefix $folder test;
           done;
 
   deploy:
