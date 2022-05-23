@@ -1,5 +1,7 @@
 # Simple Pokemon App
 
+[![Deploy to Amazon ECS](https://github.com/DBBrowne/simple-pokemon-app/actions/workflows/deploy-aws.yml/badge.svg)](https://github.com/DBBrowne/simple-pokemon-app/actions/workflows/deploy-aws.yml)
+
 An (initially) simple backend to consume https://pokeapi.co/ , with a FE to display a searchable subset of the data hosted there.
 
 Frontend deployed at: [pokemon.dbb.tools](https://pokemon.dbb.tools/)  
