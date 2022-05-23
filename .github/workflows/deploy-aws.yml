@@ -31,7 +31,7 @@ jobs:
           node-version: 16
       - run: 
           for folder in ${{ env.TEST_FOLDERS }}; do
-            npm run --prefix $folder ci
+            npm --prefix $folder ci
             npm run --prefix $folder test;
           done;
 
