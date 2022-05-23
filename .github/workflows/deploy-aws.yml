@@ -11,6 +11,7 @@ on:
       - aws
 
 env:
+  TEST_FOLDERS: "server client"
   AWS_REGION: eu-west-2
   ECR_REPOSITORY: 029929660699.dkr.ecr.eu-west-2.amazonaws.com/
   ECS_SERVICE: poke-fargate-balanced
@@ -19,19 +20,22 @@ env:
   
 
 jobs:
-  # build:
-  #   runs-on: ubuntu-latest
-  #   environment: production
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #     - run: npm ci
-  #     - run: npm test
+  test:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: 
+          for folder in ${{ env.TEST_FOLDERS }}; do
+            npm run --prefix $folder ci
+            npm run --prefix $folder test
+          done;
 
   deploy:
-    # needs: build
+    needs: test
     name: Deploy
     runs-on: ubuntu-latest
     environment: production
