@@ -57,14 +57,15 @@ jobs:
         #   ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         #   IMAGE_TAG: ${{ github.sha }}
         run:
-          docker compose -f ./docker-compose.prod.yml up --build --no-start
+          # docker compose -f ./docker-compose.prod.yml up --build --no-start
+
       - name: Push images to Amazon ECR
         run:
           echo ${{ env.CONTAINER_TAGS }};
           for tag in ${{ env.CONTAINER_TAGS }}; do
             echo ${{ env.ECR_REPOSITORY }}
             echo $tag
-            docker push ${{ env.ECR_REPOSITORY }}$tag
+            # docker push ${{ env.ECR_REPOSITORY }}$tag
           done;
 
       - name: Re-deploy via AWS service
