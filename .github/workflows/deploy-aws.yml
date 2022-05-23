@@ -19,19 +19,19 @@ env:
   
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test
+  # build:
+  #   runs-on: ubuntu-latest
+  #   environment: production
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #     - run: npm ci
+  #     - run: npm test
 
   deploy:
-    needs: build
+    # needs: build
     name: Deploy
     runs-on: ubuntu-latest
     environment: production
