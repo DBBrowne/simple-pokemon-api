@@ -57,6 +57,7 @@ jobs:
         #   ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         #   IMAGE_TAG: ${{ github.sha }}
         run:
+          echo BUILD
           # docker compose -f ./docker-compose.prod.yml up --build --no-start
 
       - name: Push images to Amazon ECR
