@@ -68,6 +68,7 @@ jobs:
             echo ${{ env.ECR_REPOSITORY }}
             echo $tag
           done;
+          echo PUSHED
 
       - name: Re-deploy via AWS service
         run:
