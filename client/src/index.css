@@ -8,6 +8,7 @@
     --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     --poke-font: pokemon-solid, var(--font-family);
     --poke-font-color: #2a75bb;
+    --poke-font-spacing: 0.05rem;
     
     --color-bg: #fff;
     --color-bg-secondary: #e9e9e9;
@@ -26,7 +27,7 @@
     --width-card-medium: 100%;
     --width-card-wide: 100%;
     --width-content: 100%;
-
+    
     --container-padding: 1em;
     --container-margin: 0.5em;
     --form-el-separation: 0.7em;
