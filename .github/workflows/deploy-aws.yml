@@ -52,23 +52,15 @@ jobs:
         uses: aws-actions/amazon-ecr-login@aaf69d68aa3fb14c1d5a6be9ac61fe15b48453a2
 
       - name: Build with docker-compose
-        # id: build-image
-        # env:
-        #   ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        #   IMAGE_TAG: ${{ github.sha }}
-          # docker compose -f ./docker-compose.prod.yml up --build --no-start
         run:
-          echo BUILD
+          docker compose -f ./docker-compose.prod.yml up --build --no-start
 
       - name: Push images to Amazon ECR
-            # docker push ${{ env.ECR_REPOSITORY }}$tag
         run:
-          echo ${{ env.CONTAINER_TAGS }};
           for tag in ${{ env.CONTAINER_TAGS }}; do
-            echo ${{ env.ECR_REPOSITORY }}
-            echo $tag;
+            echo ${{ env.ECR_REPOSITORY }}$tag
+            docker push ${{ env.ECR_REPOSITORY }}$tag;
           done;
-          echo PUSHED
 
       - name: Re-deploy via AWS service
         run:
