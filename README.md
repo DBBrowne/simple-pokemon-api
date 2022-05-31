@@ -84,13 +84,18 @@ Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokem
         ```console
         curl -sS https://webinstall.dev/node@16 | bash
         ```
+1. Install Dependencies
+    ```console
+    npm --prefix server ci
+    npm --prefix client ci
+    ```
+    
 1. Run the tests:
     1. Backend:
         ```console
         npm run --prefix server test
         ```
     2. Frontend:
-        From a new terminal, run the Frontend:
         ```console
         npm run --prefix client test
         ```
@@ -108,15 +113,16 @@ Try it at [simple-pokemon-be.herokuapp.com/api/pokemon/mew](https://simple-pokem
         `localhost:49160/api/` or either of the direct addresses `http://127.0.0.1:49160/api/` or `http://[::]:49160/api/`
 
         You can get pokemon information from  
-        - `localhost:49160/api/pokemon/<yourQueryHere>`
+        - `localhost:49160/api/pokemon/<yourQueryHere>`  
         e.g.:
-        - - `localhost:49160/api/pokemon/mewtwo`
+            - `localhost:49160/api/pokemon/mewtwo`
 
     2. Frontend:
+        From a new terminal, run the Frontend:
         ```console
         npm run --prefix client dev
         ```
-        Visit the frontend at [localhost:3000](localhost:3000)
+        Visit your local frontend at [localhost:3000](localhost:3000)
 
 ### Running Tests
 
